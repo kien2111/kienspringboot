@@ -34,7 +34,7 @@ public class InfomationService {
 
 	public static final List<String> SCOPES = Arrays.asList(DriveScopes.DRIVE);
 
-	/*static {
+	static {
 		try {
 			HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
 			DATA_STORE_FACTORY = new FileDataStoreFactory(DATA_STORE_DIR);
@@ -42,7 +42,7 @@ public class InfomationService {
 			t.printStackTrace();
 			System.exit(1);
 		}
-	}*/
+	}
 
 	public InfomationService(){}
 	
