@@ -105,12 +105,7 @@
 			<artifactId>google-oauth-client</artifactId>
 			<version>1.22.0</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.google.oauth-client/google-oauth-client-java6 -->
-		<dependency>
-			<groupId>com.google.oauth-client</groupId>
-			<artifactId>google-oauth-client-java6</artifactId>
-			<version>1.20.0</version>
-		</dependency>
+		
 		<!-- https://mvnrepository.com/artifact/net.sourceforge.nekohtml/nekohtml -->
 		<dependency>
 			<groupId>net.sourceforge.nekohtml</groupId>
@@ -121,11 +116,11 @@
 
 
 
-		<!-- <dependency>
+		<dependency>
 			<groupId>com.google.apis</groupId>
 			<artifactId>google-api-services-drive</artifactId>
 			<version>v3-rev59-1.22.0</version>
-		</dependency> -->
+		</dependency> 
 		<!-- https://mvnrepository.com/artifact/com.google.http-client/google-http-client -->
 		<dependency>
 			<groupId>com.google.http-client</groupId>
