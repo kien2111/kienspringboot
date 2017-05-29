@@ -121,11 +121,11 @@
 
 
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>com.google.apis</groupId>
 			<artifactId>google-api-services-drive</artifactId>
 			<version>v3-rev59-1.22.0</version>
-		</dependency>
+		</dependency> -->
 		<!-- https://mvnrepository.com/artifact/com.google.http-client/google-http-client -->
 		<dependency>
 			<groupId>com.google.http-client</groupId>
