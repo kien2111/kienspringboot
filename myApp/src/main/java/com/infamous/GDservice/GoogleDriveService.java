@@ -20,7 +20,8 @@ import com.infamous.Model.InformationFile;
 
 @Service
 public class GoogleDriveService {
-	@Autowired
+
+	
 	InfomationService infor = new InfomationService();
 
 	private Drive service;
