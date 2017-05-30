@@ -23,7 +23,7 @@ public class GoogleDriveService {
 
 	
 	InfomationService infor = new InfomationService();
-
+	@Autowired
 	private Drive service;
 
 	public GoogleDriveService() {
