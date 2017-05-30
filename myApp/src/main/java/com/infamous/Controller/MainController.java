@@ -29,13 +29,13 @@ import com.infamous.Service.NewsService;
 @Controller
 public class MainController {
 	@Autowired
-	private final GoogleDriveService serviceGoogle;
+	private GoogleDriveService serviceGoogle;
 	//private final AmazonService serviceAmazon;
 
 	
-	public MainController(GoogleDriveService serviceAmazon) {
+	/*public MainController(GoogleDriveService serviceAmazon) {
 		this.serviceGoogle = serviceAmazon;
-	}
+	}*/
 
 	@Autowired
 	private NewsService newsService;
