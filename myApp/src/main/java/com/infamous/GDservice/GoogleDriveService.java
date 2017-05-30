@@ -8,7 +8,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.json.simple.parser.ParseException;
 import org.springframework.stereotype.Service;
 
 import com.google.api.client.auth.oauth2.Credential;
@@ -21,9 +21,8 @@ import com.infamous.Model.InformationFile;
 @Service
 public class GoogleDriveService {
 
-	
 	InfomationService infor = new InfomationService();
-	@Autowired
+
 	private Drive service;
 
 	public GoogleDriveService() {
@@ -38,6 +37,9 @@ public class GoogleDriveService {
 					.setApplicationName(InfomationService.APPLICATION_NAME).build();
 
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -128,7 +130,7 @@ public class GoogleDriveService {
 				}
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+
 		}
 		return list;
 	}

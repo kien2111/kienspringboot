@@ -28,14 +28,14 @@ import com.infamous.Service.NewsService;
 
 @Controller
 public class MainController {
-	@Autowired
-	private GoogleDriveService serviceGoogle;
+
+	private final GoogleDriveService serviceGoogle;
 	//private final AmazonService serviceAmazon;
 
-	/*@Autowired
+	@Autowired
 	public MainController(GoogleDriveService serviceAmazon) {
 		this.serviceGoogle = serviceAmazon;
-	}*/
+	}
 
 	@Autowired
 	private NewsService newsService;
@@ -55,15 +55,14 @@ public class MainController {
 	public String handlerUploadNews(
 			@RequestParam("file") MultipartFile file, @RequestParam("title") String title,
 			@RequestParam("content") String content, RedirectAttributes redirectAttributes, HttpServletRequest request)
-					throws IOException {
+			throws IOException {
 		try {
 			NewsModel model = new NewsModel();
 
 			model.setTitle(title);
 			model.setContent(content);
 			String flagupload = serviceGoogle.uploadFile(file.getOriginalFilename(), file.getInputStream(),file.getContentType());
-			//String flagupload = amazonService.uploadFile(file.getOriginalFilename(), file.getInputStream());
-
+				
 
 			if (flagupload != null) {
 				model.setAttactLink(AmazonServiceManager.DOWNLOAD_LINK + flagupload);
@@ -87,7 +86,6 @@ public class MainController {
 	@GetMapping("all-file")
 	@ModelAttribute("list")
 	public List<InformationFile> Download() {
-		//return serviceAmazon.getAllFile();
 		return serviceGoogle.getAllFile();
 	}
 
@@ -96,26 +94,26 @@ public class MainController {
 	public Iterable<NewsModel> allNews() {
 		return newsService.getAll();
 	}
-
-
-	//GOOGLE
-	@GetMapping("/download/{fileid}")
-	@ResponseBody
-	public void Download(@PathVariable String fileid, HttpServletResponse response) {
-		ByteArrayOutputStream out = serviceGoogle.downloadFile(fileid);
-		InformationFile info = serviceGoogle.printInformationFile(fileid);
-		System.out.println(info.toString());
-		response.setHeader("Content-Type", info.getType());
-
-		response.setHeader("Content-Length", String.valueOf(out.size()));
-
-		response.setHeader("Content-Disposition", "inline; filename=\"" + info.getTitle() + "\"");
-
-		try {
-			response.getOutputStream().write(out.toByteArray(), 0, out.size());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+	
+	
+//GOOGLE
+//	@GetMapping("/download/{fileid}")
+//	@ResponseBody
+//	public void Download(@PathVariable String fileid, HttpServletResponse response) {
+//		ByteArrayOutputStream out = serviceGoogle.downloadFile(fileid);
+//		InformationFile info = serviceGoogle.printInformationFile(fileid);
+//		System.out.println(info.toString());
+//		response.setHeader("Content-Type", info.getType());
+//
+//		response.setHeader("Content-Length", String.valueOf(out.size()));
+//
+//		response.setHeader("Content-Disposition", "inline; filename=\"" + info.getTitle() + "\"");
+//
+//		try {
+//			response.getOutputStream().write(out.toByteArray(), 0, out.size());
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//	}
 }
