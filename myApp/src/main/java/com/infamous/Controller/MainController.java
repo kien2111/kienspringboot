@@ -28,7 +28,7 @@ import com.infamous.Service.NewsService;
 
 @Controller
 public class MainController {
-
+	@Autowired
 	private final GoogleDriveService serviceGoogle;
 	//private final AmazonService serviceAmazon;
 
