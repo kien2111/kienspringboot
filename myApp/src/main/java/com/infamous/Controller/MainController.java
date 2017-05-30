@@ -32,10 +32,10 @@ public class MainController {
 	private GoogleDriveService serviceGoogle;
 	//private final AmazonService serviceAmazon;
 
-	
-	/*public MainController(GoogleDriveService serviceAmazon) {
+	@Autowired
+	public MainController(GoogleDriveService serviceAmazon) {
 		this.serviceGoogle = serviceAmazon;
-	}*/
+	}
 
 	@Autowired
 	private NewsService newsService;
